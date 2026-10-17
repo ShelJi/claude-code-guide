@@ -2,9 +2,9 @@
 
 A responsive guide website adapted from the supplied 53-page `Claude_Code_Guide.pdf`. The content is organized into 35 chapters covering commands, context management, permissions, skills, agents, worktrees, MCP, hooks, and everyday workflows.
 
-[Open the website](https://claude-code-field-guide-shelj.stableharp3.chatgpt.site/)
+[Open the GitHub Pages website](https://shelji.github.io/claude-code-guide/)
 
-The hosted site is private and requires access through its owner's account.
+The GitHub Pages deployment publishes the contents of `dist/`.
 
 ## Features
 
@@ -63,6 +63,12 @@ This is a conversion of the supplied document, not a continuously updated Claude
 
 During initial creation, content coverage and JavaScript syntax were checked. The local server returned HTTP 200, and chapter navigation, search, and reading-progress controls were checked in the browser.
 
-## Hosting
+## Publish through GitHub
 
-The site is deployed with Sites. `.openai/hosting.json` identifies the existing site and serves the `dist` directory. Preserve its project ID when updating this deployment. Never store publishing credentials in the project.
+The repository is [ShelJi/claude-code-guide](https://github.com/ShelJi/claude-code-guide).
+
+`.github/workflows/pages.yml` publishes `dist/` to GitHub Pages whenever changes are pushed to `main`. It can also be run manually from **Actions → Publish guide to GitHub Pages → Run workflow**. No build step or deployment secrets are required; the workflow uses GitHub's built-in token with Pages deployment permissions.
+
+In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. After a successful workflow run, the website is available at <https://shelji.github.io/claude-code-guide/>. Deployment progress and errors appear in the repository's Actions tab.
+
+The previous private [Sites deployment](https://claude-code-field-guide-shelj.stableharp3.chatgpt.site/) is separate. `.openai/hosting.json` retains its identity; GitHub Pages publishes only `dist/` and does not use that configuration. Never store publishing credentials in the project.
